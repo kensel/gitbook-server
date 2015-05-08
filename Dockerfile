@@ -1,13 +1,15 @@
 FROM ubuntu:14.10
 MAINTAINER tobe tobeg3oogle@gmail.com
+# modified by Kensel kensela@leishman6.net
 
 RUN apt-get -y update
+RUN apt-get -y install git
 
 # Install gitbook
 RUN apt-get install -y curl && \
     curl -sL https://deb.nodesource.com/setup | bash - && \
     apt-get install -y nodejs && \
-    npm install gitbook@1.3.4 -g
+    npm install gitbook-cli -g
 
 # Support gitbook pdf
 RUN apt-get install -y calibre
